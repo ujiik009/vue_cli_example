@@ -1,23 +1,33 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+  <div>
+    <input v-model="name">
+    <p v-if="name">Hi, {{ name }}</p>
+    <ul>
+      <li v-for="list in lists ">{{ list }}</li>
+    </ul>
+    <button @click="say">say</button>
   </div>
+
 </template>
 
 <script>
 export default {
-  name: 'app'
+  data () {
+    return {
+      name: '',
+      lists: [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  methods: {
+    say: () => {
+      alert(555)
+    }
+  }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

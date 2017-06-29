@@ -1,20 +1,25 @@
 <template>
   <div>
-    <input v-model="name">
-    <p v-if="name">Hi, {{ name }}</p>
+    
     <ul>
       <li v-for="list in lists ">{{ list }}</li>
     </ul>
-    <button @click="say">say</button>
+    <button @click="say('Ice')">say</button>
+     <Hello name="ice" year="2017"></Hello>
+      <Hello name="ice1" year="2015"></Hello>
+       <Hello name="ice2" year="2016"></Hello>
   </div>
-
+ 
 </template>
 
 <script>
+import Hello from './components/Hello'
 export default {
+  components: {
+    Hello
+  },
   data () {
     return {
-      name: '',
       lists: [
         1,
         2,
@@ -25,8 +30,8 @@ export default {
     }
   },
   methods: {
-    say: () => {
-      alert(555)
+    say (text) {
+      alert('hi ' + text)
     }
   }
 }

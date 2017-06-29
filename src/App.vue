@@ -1,25 +1,22 @@
 <template>
   <div>
-    
-    <ul>
-      <li v-for="list in lists ">{{ list }}</li>
-    </ul>
-    <button @click="say('Ice')">say</button>
-     <Hello name="ice" year="2017"></Hello>
-      <Hello name="ice1" year="2015"></Hello>
-       <Hello name="ice2" year="2016"></Hello>
+    <input v-model="name"/>
+    <profile v-bind:name="name"></profile>
+    <profile :name="name"></profile>
   </div>
  
 </template>
 
 <script>
-import Hello from './components/Hello'
+import profile from './components/Profile'
+
 export default {
   components: {
-    Hello
+    profile
   },
   data () {
     return {
+      name: '',
       lists: [
         1,
         2,
